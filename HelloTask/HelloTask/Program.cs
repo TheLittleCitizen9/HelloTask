@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace HelloTask
 {
@@ -34,6 +35,14 @@ namespace HelloTask
                 thread.Start();
                    
             }
+        }
+
+        public static void PrintStackParallel()
+        {
+            Parallel.For(1, 5001, i =>
+            {
+                PrintStack();
+            });
         }
 
         public static void PrintStack()
