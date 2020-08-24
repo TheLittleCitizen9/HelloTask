@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace HelloTask
 {
@@ -6,7 +7,7 @@ namespace HelloTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            PrintThreads();
         }
 
         public static void PrintSyncronic()
@@ -15,6 +16,21 @@ namespace HelloTask
             {
                 Console.WriteLine(i);
             }
+        }
+
+        public static void PrintThreads()
+        {
+            for (int i = 0; i < 1000000; i++)
+            {
+                int threadNum = i + 1;
+                Thread thread = new Thread(() => Print(threadNum));
+                thread.Start();
+            }
+        }
+
+        public static void Print(int threadNumber)
+        {
+            Console.WriteLine(threadNumber);
         }
     }
 }
