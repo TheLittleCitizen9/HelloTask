@@ -29,13 +29,19 @@ namespace HelloTask
             {
                 int threadNum = i + 1;
                 int result;
-                while(_stack.TryPop(out result))
-                {
-                    Thread thread = new Thread(() => Print(result));
-                    //thread.IsBackground = true;
-                    thread.Start();
-                }
+                Thread thread = new Thread(() => PrintStack());
+                //thread.IsBackground = true;
+                thread.Start();
                    
+            }
+        }
+
+        public static void PrintStack()
+        {
+            int result;
+            while (_stack.TryPop(out result))
+            {
+                Console.WriteLine(result);
             }
         }
 
