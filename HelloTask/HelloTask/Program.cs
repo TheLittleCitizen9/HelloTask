@@ -12,7 +12,7 @@ namespace HelloTask
         static void Main(string[] args)
         {
             MakeStack();
-            PrintStackValue();
+            PrintStackParallel();
             Console.ReadLine();
         }
 
