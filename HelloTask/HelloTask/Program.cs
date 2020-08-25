@@ -30,9 +30,8 @@ namespace HelloTask
             {
                 int threadNum = i + 1;
                 int result;
-                Task thread = new Task(() => PrintStack());
-                //thread.IsBackground = true;
-                thread.Start();
+                Task task = new Task(() => PrintStack());
+                task.Start();
                    
             }
         }
