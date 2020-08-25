@@ -12,7 +12,7 @@ namespace HelloTask
         static void Main(string[] args)
         {
             MakeStack();
-            PrintStackParallel();
+            PrintStackValue();
             Console.ReadLine();
         }
 
@@ -30,7 +30,7 @@ namespace HelloTask
             {
                 int threadNum = i + 1;
                 int result;
-                Thread thread = new Thread(() => PrintStack());
+                Task thread = new Task(() => PrintStack());
                 //thread.IsBackground = true;
                 thread.Start();
                    
